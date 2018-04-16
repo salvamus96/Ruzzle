@@ -71,5 +71,26 @@ public class Board {
 		}
 	}
 
+	public List<Pos> getAdiacenti(Pos ultima) {
+		List<Pos> result = new ArrayList<>() ;
+		
+		for(int r = -1; r<=1; r++) {
+			for(int c = -1; c<=1; c++) {
+				// tutte le 9 posizioni nell'intorno della cella
+				
+				//if(! (r==0 && c==0))
+				
+				if(r!=0 || c!=0) { // escluda la cella stessa (offset 0,0)
+					Pos p = new Pos(ultima.getRow()+r, ultima.getCol()+c) ;
+					if(positions.contains(p)) {
+						result.add(p) ;
+					}
+				}
+			}
+		}
+		
+		return result ;
+	}
+
 	
 }

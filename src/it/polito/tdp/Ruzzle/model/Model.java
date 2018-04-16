@@ -22,6 +22,11 @@ public class Model {
 	
 	}
 	
+	public List<Pos> trovaParola(String parola) {
+		Ricerca ricerca = new Ricerca() ;
+		return ricerca.trovaParola(parola, this.board) ;
+	}
+	
 	public void reset() {
 		this.board.reset() ;
 		this.statusText.set("Board Reset");
