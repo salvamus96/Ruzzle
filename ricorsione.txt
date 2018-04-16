@@ -1,0 +1,34 @@
+Problema:
+	Stringa da riconoscere
+	Contenuto della Board
+	Posizione della lettera iniziale
+
+Soluzione parziale:
+	Parte iniziale della parola, già riconosciuta
+	Elenco delle posizioni in cui si trovavano le lettere già riconosciute
+	
+Soluzione totale:
+	Parola completamente riconosciuta
+	Elenco delle posizioni che servono per comporre la parola completa
+	
+Livello:
+	Numero di caratteri già riconosciuti nella parola
+
+Condizione di terminazione:
+	Livello = lunghezza della parola
+	Se viene trovata la soluzione, si interrompe subito la ricerca
+
+Generazione delle soluzioni:
+	Trovare tutte le posizioni che siano:
+	- adiacenti all'ultima posizione usata
+	- contenenti la lettera corretta
+	- non ancora utilizzate
+	
+Avvio della ricorsione:
+	Livello = 1
+	Partendo da una posizione che contiene la prima lettera della parola
+
+Strutture dati:
+	- Stringa da riconoscere: 'parola'
+	- Livello
+	- List<Pos> corrispondente alla sequenza di caselle: 'percorso'
