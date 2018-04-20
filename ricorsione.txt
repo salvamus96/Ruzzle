@@ -4,15 +4,15 @@ Problema:
 	Posizione della lettera iniziale
 
 Soluzione parziale:
-	Parte iniziale della parola, gi√† riconosciuta
-	Elenco delle posizioni in cui si trovavano le lettere gi√† riconosciute
+	Parte iniziale della parola, gi‡† riconosciuta
+	Elenco delle posizioni in cui si trovavano le lettere gi‡ riconosciute
 	
 Soluzione totale:
 	Parola completamente riconosciuta
 	Elenco delle posizioni che servono per comporre la parola completa
 	
 Livello:
-	Numero di caratteri gi√† riconosciuti nella parola
+	Numero di caratteri gi‡† riconosciuti nella parola
 
 Condizione di terminazione:
 	Livello = lunghezza della parola

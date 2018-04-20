@@ -14,7 +14,12 @@ import javafx.beans.property.StringProperty;
  *
  */
 public class Board {
+	// elenco delle posizioni possibili, ogni posizione Ë caratterizzata da [row, col]
 	private List<Pos> positions;
+	
+	// una mappa che rappresenta il contenuto di ogni cella a cui si accede tramite posizione
+	// con una StringProperty posso aggangiare il contenuto all'intefaccia utente e le lettere
+	// in questo modo si aggiornano in automatico con un binding
 	private Map<Pos, StringProperty> cells;
 
 	private int size;
@@ -27,6 +32,7 @@ public class Board {
 		this.size = size;
 
 		this.positions = new ArrayList<>();
+		// costruzione di tutte le posizioni possibili
 		for (int row = 0; row < this.size; row++) {
 			for (int col = 0; col < this.size; col++) {
 				this.positions.add(new Pos(row, col));
@@ -41,10 +47,11 @@ public class Board {
 	}
 	
 	/**
-	 * Fornisce la {@link StringProperty} corrispondente alla {@link Pos} specificata. <p>
+	 * Fornisce la {@link StringProperty} corrispondente alla {@link Pos} specificata.
 	 * 
-	 * Pu√≤ essere usata per sapere che lettera √® presente
-	 * (es. {@code getCellValueProperty(p).get()}) oppure per fare un binding della propriet√† stessa sulla mappa visuale.
+	 * PuÚ essere usata per sapere che lettera Ë presente
+	 * (es. {@code getCellValueProperty(p).get()}) oppure per fare un binding della propriet‡ 
+	 * stessa sulla mappa visuale.
 	 * @param p
 	 * @return
 	 */
@@ -53,7 +60,8 @@ public class Board {
 	}
 
 	/**
-	 * Restituisce la lista di oggetti {@link  Pos} che corrispondono alle posizioni lecite sulla scacchiera. Gli elementi sono ordinati per righe.
+	 * Restituisce la lista di oggetti {@link  Pos} che corrispondono alle posizioni lecite sulla scacchiera. 
+	 * Gli elementi sono ordinati per righe.
 	 * @return
 	 */
 	public List<Pos> getPositions() {
@@ -61,7 +69,9 @@ public class Board {
 	}
 
 	/**
-	 * Crea una nuova scacchiera generando tutte lettere casuali
+	 * Crea una nuova scacchiera generando tutte lettere casualmente, si
+	 * potrebbe creare una variante inserendo le lettere in base alla loro 
+	 * frequenza di "apparizione" nel dizionario
 	 */
 	public void reset() {
 		for(Pos p: this.positions) {
@@ -82,9 +92,9 @@ public class Board {
 				
 				if(r!=0 || c!=0) { // escluda la cella stessa (offset 0,0)
 					Pos p = new Pos(ultima.getRow()+r, ultima.getCol()+c) ;
-					if(positions.contains(p)) {
+					if(positions.contains(p)) 
 						result.add(p) ;
-					}
+					
 				}
 			}
 		}

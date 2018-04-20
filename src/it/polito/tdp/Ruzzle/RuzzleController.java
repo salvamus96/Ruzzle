@@ -23,6 +23,7 @@ public class RuzzleController {
 
 	private Model model;
 
+	// mappa dell'interfaccia che mette in relazione posizione e bottone
 	private Map<Pos, Button> letters;
 
 	@FXML // ResourceBundle that was given to the FXMLLoader
@@ -103,6 +104,7 @@ public class RuzzleController {
 			return;
 		}
 
+		//la parola inserita verrà confrontata con il percorso formato da lettere maiuscole
 		parola = parola.toUpperCase();
 
 		// controllare che ci siano solo caratteri A-Z
@@ -195,10 +197,15 @@ public class RuzzleController {
 		this.letters.put(new Pos(3, 2), let32);
 		this.letters.put(new Pos(3, 3), let33);
 
+		//per tutte le posizioni della board, considero il bottone in quella posizione
+		//e il testo di quel bottone lo collego alla proprietà di quella stessa posizione 
+		//all'interno della board
+		
 		for (Pos cell : m.getBoard().getPositions()) {
 			this.letters.get(cell).textProperty().bind(m.getBoard().getCellValueProperty(cell));
 		}
 
+		// collegamento tra l'etichetta e lo stato del modello
 		// this.txtStatus.textProperty().bind(m.statusTextProperty());
 
 	}

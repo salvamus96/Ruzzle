@@ -13,6 +13,7 @@ public class Model {
 	private List<String> dizionario;
 	private StringProperty statusText;
 
+	// costruttore che richiama il costruttore sotto
 	public Model() {
 		this(4) ;
 	}
@@ -24,6 +25,7 @@ public class Model {
 
 		this.board = new Board(SIZE);
 		DizionarioDAO dao = new DizionarioDAO();
+		// carico il dizinario in modo da non interrogare pià volte il database
 		this.dizionario = dao.listParola();
 		statusText.set(String.format("%d parole lette", this.dizionario.size()));
 
